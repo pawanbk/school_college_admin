@@ -1,0 +1,121 @@
+fieldset {
+  min-width: 0;
+  padding: 10px 10px 0px;
+  margin: 10px 0px;
+  border: 1px solid silver;
+  border-radius: 4px;
+}
+
+.error_msg{
+  color: red;
+}
+
+fieldset legend {
+  display: block;
+  width: auto;
+  padding: 0;
+  margin-bottom: 0px;
+  font-size: 14px;
+  line-height: inherit;
+  color: silver;
+  border: 0;
+}
+
+.btn{
+  background-color: #56328c; 
+  color: white;
+}
+
+.required-label::after{
+  color: red;
+  content: '*';
+}
+
+table{
+  font-size: 13px;
+}
+
+.table thead tr th{
+  background-color: #56328c; 
+  color: white;
+}
+
+.item input, .item textarea {
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.bad input, .bad select, .bad textarea {
+  border: 1px solid #CE5454 !important;
+  box-shadow: 0 0 4px -2px #CE5454 !important;
+  -moz-animation: .7s 1 shake linear;
+  -webkit-animation: 0.7s 1 shake linear;
+}
+
+@keyframes shake{
+  15%{ transform:translateX(-5px); }
+  30%{ transform:translateX(5px); }
+  45%{ transform:translateX(-3px); }
+  60%{ transform:translateX(3px); }
+  75%{ transform:translateX(2px); }
+  100%{ transform:none; }
+}
+
+@-webkit-keyframes shake{
+  25%{ -webkit-transform:translateX(-6px); }
+  75%{ -webkit-transform:translateX(6px); }
+}
+
+.bad .select2-selection__rendered{
+  border: 1px solid #f00;
+  box-shadow: 0 0 4px -2px #f00;
+  -moz-animation: .7s 1 shake linear;
+  -webkit-animation: 0.7s 1 shake linear;
+}
+
+.eq-section .select2-container--default .select2-selection--single:hover{
+  border: 1px solid #008833 !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default .select2-search--dropdown .select2-search__field, .eq-section .select2-container--default .select2-selection--single:focus{
+  border-color: #008833 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5) !important;
+  outline: none !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default .select2-search--dropdown .select2-search__field> .eq-section .select2-container--default .select2-selection--single{
+  border-color: #008833 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5) !important;
+  outline: none !important;
+}
+
+#loader{
+  display : none;
+}
+
+#loader.show{
+  display : block;
+  position : fixed;
+  z-index: 100000;
+  background-image : url('../../assets/images/loader.gif');
+  background-color:#666;
+  opacity : 0.8;
+  background-repeat : no-repeat;
+  background-position : center;
+  left : 0;
+  bottom : 0;
+  right : 0;
+  top : 0;
+  background-size: 18vh;
+}
+
+.dataTables_processing {
+  z-index: 11000 !important;
+  background-color: #723AB2 !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: bold ;
+  border: 2px solid #555;
+  box-shadow: 3px 5px 4px 1px #555;
+}
