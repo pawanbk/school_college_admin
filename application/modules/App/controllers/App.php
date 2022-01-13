@@ -289,6 +289,18 @@ class App extends OAS_Controller{
     }
   }
 
+  function lecturerSocialLinks(){
+    $data['main_title'] = "Lecturer Social Link";
+    $data['title_small'] = "";
+
+    $crud = new grocery_CRUD();
+    $crud->set_table('tbl_lecturer_social_link');
+    $crud->set_relation('lecturer_id','tbl_lecturers','full_name');
+    $crud->required_fields(['link_icon','social_link','lecturer_id']);
+    $crud->display_as('lecturer_id', 'Lecturer');
+    $output = $crud->render();
+    $this->_example_output($output,$data);
+  }
   function courseLecturer(){
     $data['main_title'] = "Assign Lecturer";
     $data['title_small'] = "";
@@ -430,11 +442,13 @@ class App extends OAS_Controller{
     $data['title_small'] = "";
 
     $crud = new grocery_CRUD();
-    $crud->set_table('testimonials');
-    $crud->columns(['name','featured_image']);
+    $crud->set_table('tbl_testimonials');
+    $crud->columns(['name','featured_image','description']);
+    $crud->set_field_upload('featured_image','uploads/testinomials');
     $crud->display_as('featured_image', 'Image');
+    $crud->display_as('description','Comment');
     
-    $crud->unset_add();
+    //$crud->unset_add();
     $crud->unset_edit();
     $output = $crud->render();
     $this->_example_output($output,$data);

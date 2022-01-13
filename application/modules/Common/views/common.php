@@ -6,7 +6,7 @@
 
     <?php $siteSetting = $this->db->get_where('tbl_site_setting', array('site_id'=>1))->row();?>
 
-    <title><?php echo $siteSetting->site_name; ?></title>
+    <title><?php echo $siteSetting->site_name; ?> | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Walkers Hive Admin & Dashboard" name="description" />
     <meta content="Themesbrand" name="Walkers Hive" />
