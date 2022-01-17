@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <?php $siteSetting = $this->db->get_where('tbl_site_setting', array('site_id'=>1))->row();?>
+    <?php $siteSetting = $this->db->get_where('site_setting', array('site_id'=>1))->row();?>
 
     <title><?php echo $siteSetting->site_name; ?> | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

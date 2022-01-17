@@ -25,7 +25,7 @@ if(! function_exists('populateMenu')){
 		$CI =& get_instance();
 
 		$sql = "select b.menu_id, b.menu_code, b.menu_name,b.pre_menu_id,b.menu_index, b.route, b.icon_class
-		from tbl_menu_master b
+		from menu_master b
 		where b.menu_type='outer' and b.is_active='y'
 		order by pre_menu_id,menu_index";
 		

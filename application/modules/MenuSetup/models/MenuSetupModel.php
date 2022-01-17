@@ -4,7 +4,7 @@ class MenuSetupModel extends CI_Model {
 
 	function getMenuAll():array{
 		$data = $this->db->select("a.menu_id, a.menu_code, a.menu_name, a.pre_menu_id,a.menu_type,a.menu_index")
-		->from('tbl_menu_master a')
+		->from('menu_master a')
 		->where(array('a.is_active'=>'y'))
 		->order_by('a.pre_menu_id,a.menu_index')
 		->get();
@@ -22,7 +22,7 @@ class MenuSetupModel extends CI_Model {
 
 	function getMenuAllOuter():array{
 		$data = $this->db->select("a.menu_id, a.menu_code, a.menu_name, a.pre_menu_id, a.menu_type, a.menu_index,a.icon_class")
-		->from('tbl_menu_master a')
+		->from('menu_master a')
 		->where(array('a.is_active'=>'y','a.menu_type'=>'outer'))
 		->order_by('a.pre_menu_id,a.menu_index')
 		->get();
@@ -41,9 +41,9 @@ class MenuSetupModel extends CI_Model {
 
 	function getMenuByID(string $menuId):array{
 		$this->db->select("a.menu_id, a.menu_code, a.menu_name, a.pre_menu_id,b.menu_name as parent_menu, a.menu_type, a.route, a.icon_class, a.menu_index")
-		->from('tbl_menu_master a')
+		->from('menu_master a')
 		->where(array('a.menu_id'=>$menuId,'a.is_active'=>'y'))
-		->join('tbl_menu_master b','a.pre_menu_id=b.menu_id','left');
+		->join('menu_master b','a.pre_menu_id=b.menu_id','left');
 		$result = $this->db->get()->row_array();
 		return $result;
 	}
@@ -53,7 +53,7 @@ class MenuSetupModel extends CI_Model {
 		$data['created_by'] = $this->session->userdata('emp_id');
 		$data['created_date'] = date('Y-m-d H:i:s');
 
-		$this->db->insert('tbl_menu_master', $data);
+		$this->db->insert('menu_master', $data);
 		return urlencode(base64_encode($this->db->insert_id()));
 	}
 
@@ -62,7 +62,7 @@ class MenuSetupModel extends CI_Model {
 		$data['modified_by'] = $this->session->userdata('emp_id');
 		$data['modified_date'] = date('Y-m-d H:i:s');
 
-		$this->db->update('tbl_menu_master', $data, array('menu_id'=>$menuId));
+		$this->db->update('menu_master', $data, array('menu_id'=>$menuId));
 		return urlencode(base64_encode($menuId));
 	}
 }

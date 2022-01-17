@@ -53,7 +53,7 @@ class Login extends MX_Controller {
           }
           else{
              
-            $checkLocked = $this->db->select('is_locked_flag, is_active')->where('email', $email)->get('tbl_user_auth')->row_array();
+            $checkLocked = $this->db->select('is_locked_flag, is_active')->where('email', $email)->get('user_auth')->row_array();
             
             if('Locked'==$checkLocked['is_locked_flag'] || 'In-Active'==$checkLocked['is_active']){
                 $this->session->set_flashdata('error_msg', 'Your Account has been locked!! <br><br>Please Contact System Administrator');

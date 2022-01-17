@@ -54,7 +54,7 @@ class MenuSetup extends OAS_Controller {
 				'msg' => "Operation Failed",
 			);
 
-			$this->form_validation->set_rules('menu_code', 'Menu Code', 'required|min_length[5]|max_length[80]|is_unique[tbl_menu_master.menu_code]');
+			$this->form_validation->set_rules('menu_code', 'Menu Code', 'required|min_length[5]|max_length[80]|is_unique[menu_master.menu_code]');
 			$this->form_validation->set_rules('menu_name', 'Menu Title', 'required|min_length[3]|max_length[50]');
 			$this->form_validation->set_rules('menu_type', 'Menu Type', 'required');
 
@@ -74,7 +74,7 @@ class MenuSetup extends OAS_Controller {
 				);
 			}
 			else{
-				$maxValue = $this->db->query("SELECT max(menu_id) AS max_value FROM tbl_menu_master")->row_array();
+				$maxValue = $this->db->query("SELECT max(menu_id) AS max_value FROM menu_master")->row_array();
 				$menuId = $maxValue['max_value'] + 1;
 
 				$dataInsert = array(
@@ -137,7 +137,7 @@ class MenuSetup extends OAS_Controller {
 			$this->form_validation->set_rules('menu_id', 'Menu Id', 'required');
 
 			if($this->input->post('menu_code') != $data['menu']['menu_code']) {
-				$this->form_validation->set_rules('menu_code', 'Menu Code', 'required|min_length[5]|max_length[80]|is_unique[tbl_menu_master.menu_code]');
+				$this->form_validation->set_rules('menu_code', 'Menu Code', 'required|min_length[5]|max_length[80]|is_unique[menu_master.menu_code]');
 			} else {
 				$this->form_validation->set_rules('menu_code', 'Menu Code', 'required|min_length[5]|max_length[80]');
 			}
